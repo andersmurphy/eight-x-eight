@@ -1,0 +1,3 @@
+{:main eight-x-eight.app
+ :output-to "docs/cljs-out/app.js"
+ :output-dir "docs/cljs-out"}

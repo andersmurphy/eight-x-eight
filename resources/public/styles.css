@@ -1,0 +1,82 @@
+body {
+  background-color: rgb(32,35,50);
+}
+
+#board-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template: repeat(8, 12.5%) / repeat(8, 12.5%);
+  border: 4px solid rgb(94,101,94);
+}
+
+.tile {
+  position: relative;
+}
+
+.tile__floor {  
+  position: absolute;
+  height: 100%;
+  width: 100%;  
+  background: url(imgs/floor_1.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.tile__wall {
+  position: absolute;
+  height: 100%;
+  width: 100%;  
+  background: url(imgs/wall_mid.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@keyframes monster {
+  0%   {background-image: url(imgs/masked_orc_idle_anim_f0.png)}
+  25%  {background-image: url(imgs/masked_orc_idle_anim_f1.png)}
+  50%  {background-image: url(imgs/masked_orc_idle_anim_f2.png)}
+  75%  {background-image: url(imgs/masked_orc_idle_anim_f3.png)}
+  100%  {background-image: url(imgs/masked_orc_idle_anim_f0.png)}
+}
+  
+
+.tile__monster {
+  position: absolute;
+  inset: 0; /* combines top bottom left right */
+  background: no-repeat center/70%;
+  animation: 0.5s monster none infinite;
+}
+
+@keyframes treasure {
+  0%   {background-image: url(imgs/chest_full_open_anim_f0.png)}
+  25%  {background-image: url(imgs/chest_full_open_anim_f1.png)}
+  50%  {background-image: url(imgs/chest_full_open_anim_f2.png)}
+  100%  {background-image: url(imgs/chest_full_open_anim_f2.png)}
+}
+  
+
+.tile__treasure {
+  position: absolute;
+  inset: 0; /* combines top bottom left right */
+  margin: auto;
+  background: no-repeat center/70%;
+  animation: 1s treasure alternate infinite;
+}
+
+@media (max-width: 480px){
+  body {
+    margin: 0px;
+  }
+}
