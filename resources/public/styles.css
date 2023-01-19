@@ -1,11 +1,47 @@
-body {
-  background-color: rgb(32,35,50);
+/* Reset */
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
-#board-area {
-  width: 100%;
-  height: 100%;
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Styles */
+body {
+  font-family: "Press Start 2P", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: white;
+  background-color: rgb(72, 59, 58);
+}
+
+.title {
+  margin: 6px;
+}
+
+#screen-area {
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -16,7 +52,7 @@ body {
   aspect-ratio: 1;
   display: grid;
   grid-template: repeat(8, 12.5%) / repeat(8, 12.5%);
-  border: 4px solid rgb(94,101,94);
+  padding: 6px;
 }
 
 .tile {
@@ -50,7 +86,6 @@ body {
   75%  {background-image: url(imgs/masked_orc_idle_anim_f3.png)}
   100%  {background-image: url(imgs/masked_orc_idle_anim_f0.png)}
 }
-  
 
 .tile__monster {
   position: absolute;
@@ -65,7 +100,6 @@ body {
   50%  {background-image: url(imgs/chest_full_open_anim_f2.png)}
   100%  {background-image: url(imgs/chest_full_open_anim_f2.png)}
 }
-  
 
 .tile__treasure {
   position: absolute;
@@ -73,10 +107,4 @@ body {
   margin: auto;
   background: no-repeat center/70%;
   animation: 1s treasure alternate infinite;
-}
-
-@media (max-width: 480px){
-  body {
-    margin: 0px;
-  }
 }
