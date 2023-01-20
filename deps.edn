@@ -3,16 +3,10 @@
            org.clojure/clojurescript {:mvn/version "1.11.60"}
            ;; Fig wheel
            com.bhauman/figwheel-main {:mvn/version "0.2.18"}
-           org.slf4j/slf4j-nop       {:mvn/version "1.7.30"}
-           ;; Libraries
-           cljsjs/react-dom          {:mvn/version "18.2.0-1"}
-           cljsjs/react              {:mvn/version "18.2.0-1"}
-           sablono/sablono           {:mvn/version "0.8.6"}
-           net.sekao/odoyle-rules    {:mvn/version "1.0.0"}}
+           org.slf4j/slf4j-nop       {:mvn/version "1.7.30"}}
  :paths   ["src" "resources" "target"]
  :aliases {;; Development builds
-           :dev
-           {:main-opts ["-m" "figwheel.main"
+           :dev {:main-opts ["-m" "figwheel.main"
                         "-b" "app-dev"
                         "-r"]}
            ;; Production builds
