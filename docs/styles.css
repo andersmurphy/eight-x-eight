@@ -30,7 +30,7 @@ body {
   font-style: normal;
   font-weight: 400;
   color: white;
-  background-color: rgb(72, 59, 58);
+  background-color: rgb(79, 30, 69);
 }
 
 .title {
@@ -63,7 +63,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;  
-  background: url(imgs/floor_1.png);
+  background: url(imgs/sprites.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

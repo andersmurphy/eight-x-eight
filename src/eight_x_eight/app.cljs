@@ -7,20 +7,34 @@
 (defn f [children]
   (apply h js/preact.Fragment nil children))
 
+(def tile-map
+  (let [X ["tile__floor"]
+        V ["tile__floor" "tile__trap"]
+        T ["tile__base"]
+        _ ["tile__empty"]]
+    [[_ _ X _ _ _ X _ _ _ X _ _]
+     [_ _ T _ _ _ T _ _ _ T _ _]
+     [X _ _ _ X _ _ _ X _ _ _ X]
+     [T _ _ _ T _ _ _ T _ _ _ T]
+     [_ _ X _ _ _ V _ _ _ X _ _]
+     [_ _ T _ _ _ T _ _ _ T _ _]
+     [X _ _ _ V _ _ _ V _ _ _ X]
+     [T _ _ _ T _ _ _ T _ _ _ T]
+     [_ _ X _ _ _ V _ _ _ X _ _]
+     [_ _ T _ _ _ T _ _ _ T _ _]
+     [X _ _ _ X _ _ _ X _ _ _ X]
+     [T _ _ _ T _ _ _ T _ _ _ T]
+     [_ _ X _ _ _ X _ _ _ X _ _]
+     [_ _ T _ _ _ T _ _ _ T _ _]]))
+
 (defn board-screen [_]
   (f [(h "div" #js {:class "board"}
-         (h "div" #js {:class "tile" :key 0}
-            (h "div" #js {:class "tile__floor"})
-            (h "div" #js {:class "tile__treasure"}))
-         (f (for [k (range 1 (inc 64))]
-              (if (even? k)
-                (h "div" #js {:class "tile" :key k}
-                   (h "div" #js {:class "tile__floor"})
-                   (h "div" #js {:class "tile__monster"}))
-                (h "div" #js {:class "tile" :key k}
-                   (h "div" #js {:class "tile__wall"}))))))
-      (h "button" #js {:class   "nes-btn"
-                       :onclick (fn [_]
+         (f (for [y (range 0 14)
+                  x (range 0 13)]
+              (h "div" #js {:class "tile"}
+                 (f (mapv (fn [layer]
+                            (h "div" #js {:class layer})) (get-in tile-map [y x])))))))
+      (h "button" #js {:onclick (fn [_]
                                   (set! background-music -loop true)
                                   (.play background-music))}
          "MUSIC")]))
@@ -31,7 +45,7 @@
 
 (renderer nil)
 
-;; preact supports svg
 ;; preact signals seems similar to re-frame (will it work with figwheel?)
-;; need to be able to mix css classes
-;; macro for macking preact easier 
+;; macro for making preact easier
+;; tap to teleport
+;; css animation transition to create looping background
