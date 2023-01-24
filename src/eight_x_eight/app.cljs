@@ -28,16 +28,12 @@
      [_ _ T _ _ _ T _ _ _ T _ _]]))
 
 (defn board-screen [_]
-  (f [(h "div" #js {:class "board"}
-         (f (for [y (range 0 14)
-                  x (range 0 13)]
-              (h "div" #js {:class "tile"}
-                 (f (mapv (fn [layer]
-                            (h "div" #js {:class layer})) (get-in tile-map [y x])))))))
-      (h "button" #js {:onclick (fn [_]
-                                  (set! background-music -loop true)
-                                  (.play background-music))}
-         "MUSIC")]))
+  (h "div" #js {:class "board"}
+     (f (for [y (range 0 14)
+              x (range 0 13)]
+          (h "div" #js {:class "tile"}
+             (f (mapv (fn [layer]
+                        (h "div" #js {:class layer})) (get-in tile-map [y x]))))))))
 
 (let [container (.getElementById js/document "screen-area")]
   (defn renderer [full-state]
@@ -45,7 +41,19 @@
 
 (renderer nil)
 
+;; [:button.nes-btn
+;;  {:onClick
+;;   #(do
+;;      (set! background-music -loop true)
+;;      (.play background-music))} "MUSIC"]
+
 ;; preact signals seems similar to re-frame (will it work with figwheel?)
-;; macro for making preact easier
-;; tap to teleport
-;; css animation transition to create looping background
+;; macro for making preact easier?
+
+;; TODO: minifi css
+;; TODO: add player
+;; TODO: tap to teleport
+;; TODO: play music on first interaction
+;; TODO: css animation transition to create looping stars background
+;; TODO: teleporting into trap kills player
+;; TODO: player re-spawns in random location
