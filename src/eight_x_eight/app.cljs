@@ -34,7 +34,8 @@
               x (range 0 13)]
           (h "div" #js {:class "tile"}
              (f (mapv (fn [layer]
-                        (h "div" #js {:class layer})) (get-in tile-map [y x]))))))))
+                        (h "div" #js {:class layer}))
+                      (get-in tile-map [y x]))))))))
 
 (let [container (.getElementById js/document "screen-area")]
   (defn renderer [full-state]
