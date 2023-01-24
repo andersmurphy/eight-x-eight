@@ -51,7 +51,6 @@
 ;; preact signals seems similar to re-frame (will it work with figwheel?)
 ;; macro for making preact easier?
 
-;; TODO: minifi css
 ;; TODO: add player
 ;; TODO: tap to teleport
 ;; TODO: play music on first interaction
