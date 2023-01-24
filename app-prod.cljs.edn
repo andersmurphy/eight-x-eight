@@ -1,4 +1,6 @@
 {:main eight-x-eight.app
  :output-to "docs/cljs-out/app.js"
  :output-dir "docs/cljs-out"
- :externs ["preact-externs.js"]}
+ :externs ["preact/preact-externs.js"]
+ :foreign-libs [{:file "preact/preact.min.js"
+                 :provides ["preact"]}]}

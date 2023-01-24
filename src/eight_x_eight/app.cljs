@@ -1,4 +1,5 @@
-(ns eight-x-eight.app)
+(ns eight-x-eight.app
+  (:require [preact]))
 
 (def background-music
   (new js/Audio "snds/music.mp3"))
