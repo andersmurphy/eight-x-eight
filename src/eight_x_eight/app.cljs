@@ -52,9 +52,9 @@
 ;; preact signals seems similar to re-frame (will it work with figwheel?)
 ;; macro for making preact easier?
 
+;; TODO: css minification is breaking
 ;; TODO: add player
 ;; TODO: tap to teleport
 ;; TODO: play music on first interaction
-;; TODO: css animation transition to create looping stars background
 ;; TODO: teleporting into trap kills player
 ;; TODO: player re-spawns in random location

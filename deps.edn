@@ -19,7 +19,5 @@
            ;; Scripts
            :build {:deps
                    {io.github.clojure/tools.build
-                    {:git/tag "v0.7.7" :git/sha "1474ad6"}
-                    asset-minifier/asset-minifier
-                    {:mvn/version "0.2.7"}}
+                    {:git/tag "v0.7.7" :git/sha "1474ad6"}}
                    :ns-default build}}}
